@@ -1,6 +1,6 @@
 # GainBP — GStreamer Gain + Band-Pass Audio Filter
 
-Custom GStreamer element that applies **gain** and a **band-pass filter** (high-pass + low-pass) to audio streams.
+Custom GStreamer plugin that applies **gain** and a **band-pass filter** (high-pass + low-pass) to audio input from microphone.
 
 - **Element factory name:** `gainbp`
 - **Caps:** `audio/x-raw, format=F32LE, channels=1..8, rate=1..192000`
@@ -17,3 +17,6 @@ Custom GStreamer element that applies **gain** and a **band-pass filter** (high-
 sudo apt update
 sudo apt install -y build-essential pkg-config \
   libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+
+---
+I suggest to use headphones to avoid audio interference using the default laptop speakers
