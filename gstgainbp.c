@@ -2,6 +2,7 @@
 // Build example (pkg-config must find gstreamer-1.0 and gstreamer-audio-1.0):
 //   gcc -fPIC -shared -o libgstgainbp.so gstgainbp.c $(pkg-config --cflags --libs gstreamer-1.0 gstreamer-audio-1.0) -lm
 // Or with your Makefile (produces libgstgainbp.so)
+// Developed My Manuel Sanchez using Gstreamer Template - Augost 8th 2025
 
 #include <gst/gst.h>
 #include <gst/audio/audio.h>
