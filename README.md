@@ -19,4 +19,22 @@ sudo apt install -y build-essential pkg-config \
   libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 
 ---
-I suggest to use headphones to avoid audio interference using the default laptop speakers
+I suggest using headphones to avoid audio interference using the default laptop speakers
+
+## How to use
+```bash
+make clean && make
+
+```bash
+export GST_PLUGIN_PATH="$PWD:$GST_PLUGIN_PATH"
+
+### Microfone (pulse audio default)
+
+```bash
+gst-launch-1.0 -v \
+  pulsesrc ! audioconvert ! audioresample \
+  ! audio/x-raw,format=F32LE,rate=48000,channels=1 \
+  ! gainbp gain=1.4 lowcut=120 highcut=3400 \
+  ! autoaudiosink
+
+
