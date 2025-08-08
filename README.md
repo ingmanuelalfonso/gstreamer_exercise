@@ -1,17 +1,19 @@
-#Instructions
+# GainBP — GStreamer Gain + Band-Pass Audio Filter
 
-Execute the Terminal inside the gst-plugin-gain+bandpass folder
+Custom GStreamer element that applies **gain** and a **band-pass filter** (high-pass + low-pass) to audio streams.
 
-Run:
-make clean
-make
-export GST_PLUGIN_PATH=$PWD:$GST_PLUGIN_PATH
-gst-launch-1.0 -v \
-  pulsesrc ! audioconvert ! audioresample \
-  ! audio/x-raw,format=F32LE,rate=48000,channels=1 \
-  ! gainbp gain=2 lowcut=120 highcut=3500 \
-  ! autoaudiosink
+- **Element factory name:** `gainbp`
+- **Caps:** `audio/x-raw, format=F32LE, channels=1..8, rate=1..192000`
+- **Properties:**
+  - `gain` (double, default `1.0`) — linear gain factor (e.g., 2.0 ≈ +6 dB)
+  - `lowcut` (double, default `100.0`) — HPF cutoff in Hz
+  - `highcut` (double, default `8000.0`) — LPF cutoff in Hz
 
+---
 
-You can update the gain, low and high cut frequencies. In order to have
-better results use a headphone instead of the default laptop speakers
+## Requirements (Ubuntu 22.04)
+
+```bash
+sudo apt update
+sudo apt install -y build-essential pkg-config \
+  libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
