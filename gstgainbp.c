@@ -362,6 +362,6 @@ GST_PLUGIN_DEFINE (
     "1.0",
     "LGPL",
     "gainbp",
-    "https://example.com/"
+    "Sensoras Consultoria"
 )
 
